@@ -40,7 +40,7 @@ function CustomerRewards() {
 
     const fetchCustomerTransactions = async () => {
       const transactionsData = await fetchTransactionByCustomerId(
-        parseInt(customerId)
+        customerId
       );
       // console.log("transactionsData:", transactionsData)
       // console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
