@@ -31,7 +31,7 @@ function CustomerRewards() {
     const fetchCustomerName = async () => {
       const customerData = await fetchCustomers();
       const customer = customerData.find(
-        (c) => c.customerId === parseInt(customerId)
+        (c) => c.customerId === customerId
       );
       if (customer) {
         setCustomerName(customer.customerName);
@@ -42,10 +42,10 @@ function CustomerRewards() {
       const transactionsData = await fetchTransactionByCustomerId(
         parseInt(customerId)
       );
-      console.log("transactionsData:", transactionsData)
-      console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
+      // console.log("transactionsData:", transactionsData)
+      // console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
       const groupedTransactions = groupTransactionsByMonth(transactionsData);
-      console.log("groupedTransactions=",groupedTransactions)
+      // console.log("groupedTransactions=",groupedTransactions)
       setTransactions(groupedTransactions);
     };
     fetchCustomerName();
