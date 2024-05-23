@@ -2,11 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
 import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
-import { calculatePoints, calculateTotalPoints, calculateTotalPointsByMonth } from "../utils/pointsUtils";
+import {
+  calculatePoints,
+  calculateTotalPoints,
+  calculateTotalPointsByMonth,
+} from "../utils/pointsUtils";
 import TransactionsTable from "./TransactionsTable";
-import "../styles/CusotmerRewards.scss"
-import CustomerRewardsNavbar from "./CustomerRewardsNavbar";
-import Navbar from './Navbar';
+import "../styles/CusotmerRewards.scss";
+import Navbar from "./Navbar";
+import DashboardLink from "./DashboardLink";
+import RewardsLink from "./RewardsLink";
+import TotalRewardsPoints from "./TotalRewardsPoints";
+
 function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
@@ -28,28 +35,34 @@ function CustomerRewards() {
       // console.log("transactionsData:", transactionsData)
       // console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
       const groupedTransactions = groupTransactionsByMonth(transactionsData, 3);
-      console.log("groupedTransactions=",groupedTransactions)
+      console.log("groupedTransactions=", groupedTransactions);
       setTransactions(groupedTransactions);
     };
     fetchCustomerName();
     fetchCustomerTransactions();
   }, [customerId]);
-  const leftContent = <div>Rewards Points: {totalPoints}</div>;
-  const rightContent = (
-    <>
-      <a href="/">Dashboard</a>
-      <a href={`/rewards/${customerId}`}>Rewards</a>
-    </>
-  );
+
   return (
     <div className="customer-rewards">
-      <Navbar leftContent={leftContent} rightContent={rightContent} />
+      <Navbar
+        leftContent={<TotalRewardsPoints totalPoints={totalPoints} />}
+        rightContent={
+          <>
+            <DashboardLink />
+            <RewardsLink />
+          </>
+        }
+      />
       <div className="customer-rewards__content">
         <div className="customer-rewards__activity">
           <h3>Hi! {customerName}</h3>
           <h2>Reward Points Activity</h2>
           <div className="customer-rewards__transactions">
-            <TransactionsTable transactions={allTransactions} includePoints={true} calculatePoints={calculatePoints}/>
+            <TransactionsTable
+              transactions={allTransactions}
+              includePoints={true}
+              calculatePoints={calculatePoints}
+            />
           </div>
         </div>
         <div className="customer-rewards__summary">
