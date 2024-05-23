@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchCustomers } from "../api/fetchData"
-
+import { Link } from 'react-router-dom';
 function CustomerList() {
   const [customers, setCustomers] = useState([])
   useEffect(() => {
@@ -16,7 +16,7 @@ function CustomerList() {
       <ul>
         {customers.map(customer => (
           <li key={customer.customerId}>
-            {customer.customerName}
+            {customer.customerName}  <Link to={`/transactions/${customer.id}`}>Transactions</Link>
           </li>
         ))}
       </ul>
