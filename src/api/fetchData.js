@@ -1,3 +1,9 @@
+const customersData = [
+  { customerId: 1, customerName: 'John Doe' },
+  { customerId: 2, customerName: 'Jane Smith' },
+  { customerId: 3, customerName: 'Michael Johnson' },
+  { customerId: 4, customerName: 'Emily Davis' }
+];
 const transactionsData = [
   { transactionId: 1, customerId: 1, customerName: 'John Doe', date: '2024-01-15', amount: 120 },
   { transactionId: 2, customerId: 2, customerName: 'Jane Smith', date: '2024-02-18', amount: 200 },
@@ -33,8 +39,7 @@ export const fetchTransctions = async () => {
 export const fetchCustomers = async () => {
   return new Promise(resolve => {
     setTimeout(() => {
-      const customers = [...new Set(transactionsData.map(transaction => ({id: transaction.customerId, name: transaction.customerName})))];
-      resolve(customers)
+      resolve(customersData)
     }, 1000)
   })
 }
