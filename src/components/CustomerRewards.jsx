@@ -4,7 +4,7 @@ import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
 import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
 import { calculatePoints, calculateTotalPoints, calculateTotalPointsByMonth } from "../utils/pointsUtils";
 import TransactionsTable from "./TransactionsTable";
-
+import "../styles/CusotmerRewards.scss"
 function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
