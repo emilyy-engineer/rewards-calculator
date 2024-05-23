@@ -1,7 +1,6 @@
-import { calculatePoints } from "../utils/pointsUtils";
 import { formatDate } from "../utils/formatDate";
-function TransactionsTable({ transactions }) {
-  console.log(transactions);
+
+function TransactionsTable({ transactions, includePoints = false, calculatePoints }) {
   return (
     <table>
       <thead>
@@ -9,7 +8,7 @@ function TransactionsTable({ transactions }) {
           <th>Date</th>
           <th>Description</th>
           <th>Amount</th>
-          <th>Points</th>
+          {includePoints && <th>Points</th>}
         </tr>
       </thead>
       <tbody>
@@ -18,7 +17,7 @@ function TransactionsTable({ transactions }) {
             <td>{formatDate(transaction.date)}</td>
             <td>{transaction.description}</td>
             <td>${transaction.amount}</td>
-            <td>{calculatePoints(transaction.amount)}</td>
+            {includePoints && <td>{calculatePoints(transaction.amount)}</td>}
           </tr>
         ))}
       </tbody>

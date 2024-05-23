@@ -49,7 +49,7 @@ function CustomerRewards() {
           <h3>Hi! {customerName}</h3>
           <h2>Reward Points Activity</h2>
           <div className="customer-rewards__transactions">
-            <TransactionsTable transactions={allTransactions} />
+            <TransactionsTable transactions={allTransactions} includePoints={true} calculatePoints={calculatePoints}/>
           </div>
         </div>
         <div className="customer-rewards__summary">
