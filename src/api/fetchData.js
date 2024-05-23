@@ -27,6 +27,13 @@ const transactionsData = [
   { transactionId: 20, customerId: 4, customerName: 'Emily Davis', date: '2024-02-01', amount: 210 }
 ];
 
+export const fetchCustomers = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(customersData)
+    }, 1000)
+  })
+}
 
 export const fetchTransctions = async () => {
   return new Promise(resolve => {
@@ -36,10 +43,11 @@ export const fetchTransctions = async () => {
   })
 }
 
-export const fetchCustomers = async () => {
+export const fetchTransactionByCustomerId = async (customerId) => {
   return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(customersData)
+    setTimeout(()=> {
+      const transactionByCustomerId = transactionsData.filter(transaction => transaction.customerId === customerId);
+      resolve(transactionByCustomerId)
     }, 1000)
   })
 }
