@@ -34,19 +34,37 @@ function CustomerRewards() {
   }, [customerId]);
 
   return (
-    <div>
-      <h3>Hi!{customerName}</h3>
-      <h3>Your Total Points for Past 3 Months is {totalPoints}</h3>
-
-      <ul>
-        {Object.entries(totalPointsByMonth).map(([month, points]) => (
-          <li key={month}>
-            {month}: {points} points
-          </li>
-        ))}
-      </ul>
-      <h2>Transactions</h2>
-      <TransactionsTable transactions={allTransactions} />
+    <div className="customer-rewards">
+      <div className="customer-rewards__navbar">
+        <div className="customer-rewards__navbar__left">
+          Rewards Points: {totalPoints}
+        </div>
+        <div className="customer-rewards__navbar__right">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/rewards">Rewards</a>
+        </div>
+      </div>
+      <div className="customer-rewards__content">
+        <div className="customer-rewards__activity">
+          <h3>Hi! {customerName}</h3>
+          <h2>Reward Points Activity</h2>
+          <div className="customer-rewards__transactions">
+            <TransactionsTable transactions={allTransactions} />
+          </div>
+        </div>
+        <div className="customer-rewards__summary">
+          <div className="customer-rewards__total-points">
+            Your Total Points for Past 3 Months: {totalPoints}
+          </div>
+          <ul>
+            {Object.entries(totalPointsByMonth).map(([month, points]) => (
+              <li key={month}>
+                {month}: {points} points
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
