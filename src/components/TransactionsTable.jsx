@@ -1,4 +1,5 @@
 import { calculatePoints } from "../utils/calculatePoints";
+import { formatDate } from "../utils/formatDate";
 function TransactionsTable({transactions}) {
   console.log(transactions)
   return (
@@ -15,10 +16,7 @@ function TransactionsTable({transactions}) {
       {transactions.map(transaction => (
         <tr key={transaction.transactionId}>
           <td>
-            {new Date(transaction.date).toLocaleDateString(undefined, {
-              month: "long",
-              day: "numeric"
-            })}
+            {formatDate(transaction.date)}
           </td>
           <td>{transaction.description}</td>
           <td>${transaction.amount}</td>
