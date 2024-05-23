@@ -14,30 +14,15 @@ describe("CustomerList Component", () => {
   })
 
   it("fetches and displays customers", async ()=> {
-    const mockCustomers = [
-      { customerId: 1, customerName: "John Doe" },
-      { customerId: 2, customerName: "Jane Smith" }
-    ];
-    fetchCustomers.mockResolvedValueOnce(mockCustomers);
     render(<CustomerList/>)
-
-
-
     expect(screen.getByText("Customer List")).toBeInTheDocument();
-    // await waitFor(() => {
-    //   expect(screen.getByText('John Doe')).toBeInTheDocument();
-      
-    // });
-    
+    expect(screen.getByText('John Doe')).toBeInTheDocument();
   })
 
   it("handles empty customer list", async () => {
-    fetchCustomers.mockResolvedValueOnce([]);
     render(<CustomerList />);
     expect(screen.getByText("Customer List")).toBeInTheDocument();
-    // await waitFor(() => {
-    //   expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
-    // })
+    expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
   })
 
   // it("displays the Rewards link for each customer", async () => {
