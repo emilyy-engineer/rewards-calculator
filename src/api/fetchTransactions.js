@@ -29,3 +29,12 @@ export const fetchTransctions = async () => {
     }, 1000)
   })
 }
+
+export const fetchCustomers = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const customers = [...new Set(transactionsData.map(transaction => ({id: transaction.customerId, name: transaction.customerName})))];
+      resolve(customers)
+    }, 1000)
+  })
+}
