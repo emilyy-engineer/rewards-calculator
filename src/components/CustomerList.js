@@ -16,7 +16,7 @@ function CustomerList() {
       <ul>
         {customers.map(customer => (
           <li key={customer.customerId}>
-            {customer.customerName}  <Link to={`/transactions/${customer.id}`}>Transactions</Link>
+            {customer.customerName}  <Link to={`/transactions/${customer.customerId}`}>Transactions</Link>
           </li>
         ))}
       </ul>
