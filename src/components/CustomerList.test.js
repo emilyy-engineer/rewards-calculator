@@ -39,4 +39,23 @@ describe("CustomerList Component", () => {
     //   expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
     // })
   })
+
+  // it("displays the Rewards link for each customer", async () => {
+  //   const mockCustomers = [
+  //     { customerId: 1, customerName: "John Doe" },
+  //     { customerId: 2, customerName: "Jane Smith" }
+  //   ];
+
+  //   fetchCustomers.mockResolvedValueOnce(mockCustomers);
+  //   render(
+  //     <CustomerList />
+  //   )
+
+  //   await waitFor(() => {
+  //     mockCustomers.forEach(() => {
+  //       const linkElement = screen.getByText("Rewards");
+  //       expect(linkElement).toBeInTheDocument();
+  //     })
+  //   })
+  // })
 })
