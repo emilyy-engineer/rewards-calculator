@@ -5,6 +5,7 @@ import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
 import { calculatePoints, calculateTotalPoints, calculateTotalPointsByMonth } from "../utils/pointsUtils";
 import TransactionsTable from "./TransactionsTable";
 import "../styles/CusotmerRewards.scss"
+import CustomerRewardsNavbar from "./CustomerRewardsNavbar";
 function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
@@ -35,15 +36,7 @@ function CustomerRewards() {
 
   return (
     <div className="customer-rewards">
-      <div className="customer-rewards__navbar">
-        <div className="customer-rewards__navbar__left">
-          Rewards Points: {totalPoints}
-        </div>
-        <div className="customer-rewards__navbar__right">
-          <a href="/">Dashboard</a>
-          <a href={`/rewards/${customerId}`}>Rewards</a>
-        </div>
-      </div>
+      <CustomerRewardsNavbar totalPoints={totalPoints} customerId={customerId} />
       <div className="customer-rewards__content">
         <div className="customer-rewards__activity">
           <h3>Hi! {customerName}</h3>
