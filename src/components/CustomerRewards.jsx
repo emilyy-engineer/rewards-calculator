@@ -25,8 +25,8 @@ function CustomerRewards() {
       const transactionsData = await fetchTransactionByCustomerId(customerId);
       // console.log("transactionsData:", transactionsData)
       // console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
-      const groupedTransactions = groupTransactionsByMonth(transactionsData);
-      // console.log("groupedTransactions=",groupedTransactions)
+      const groupedTransactions = groupTransactionsByMonth(transactionsData, 3);
+      console.log("groupedTransactions=",groupedTransactions)
       setTransactions(groupedTransactions);
     };
     fetchCustomerName();

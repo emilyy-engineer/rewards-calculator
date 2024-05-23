@@ -1,4 +1,4 @@
-export const groupTransactionsByMonth = (transactions) => {
+export const groupTransactionsByMonth = (transactions, numberOfMonths = 12) => {
   const grouped = transactions.reduce((acc, transaction) => {
     const month = new Date(transaction.date).toLocaleString("default", {
       year: "numeric",
@@ -13,7 +13,7 @@ export const groupTransactionsByMonth = (transactions) => {
 
   const sortedGrouped = Object.keys(grouped)
     .sort((a, b) => new Date(b) - new Date(a))
-    .slice(0, 3)
+    .slice(0, numberOfMonths)
     .reduce((acc, month) => {
       acc[month] = grouped[month];
       return acc;
