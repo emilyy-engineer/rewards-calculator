@@ -31,7 +31,7 @@ export const fetchCustomers = async () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(customersData)
-    }, 1000)
+    }, 100)
   })
 }
 
@@ -39,7 +39,7 @@ export const fetchTransctions = async () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(transactionsData)
-    }, 1000)
+    }, 100)
   })
 }
 
@@ -48,6 +48,6 @@ export const fetchTransactionByCustomerId = async (customerId) => {
     setTimeout(()=> {
       const transactionByCustomerId = transactionsData.filter(transaction => transaction.customerId === customerId);
       resolve(transactionByCustomerId)
-    }, 1000)
+    }, 100)
   })
 }
