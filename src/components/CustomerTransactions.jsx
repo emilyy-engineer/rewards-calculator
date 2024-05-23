@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
 import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
+import { calculatePoints } from "../utils/calculatePoints";
 
 function CustomerTransactions() {
   const { customerId } = useParams();
@@ -36,17 +37,31 @@ function CustomerTransactions() {
       {Object.keys(transactions).map((month) => (
         <div key={month}>
           <h3>{month}</h3>
-          <ul>
-            {transactions[month].map((transaction) => (
-              <li key={transaction.transactionId}>
-                {new Date(transaction.date).toLocaleDateString(undefined, {
-                  month: "long",
-                  day: "numeric",
-                })}
-                :{transaction.description} - ${transaction.amount}
-              </li>
-            ))}
-          </ul>
+          <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {transactions[month].map((transaction) => (
+          <tr key={transaction.transactionId}>
+            <td>
+              {new Date(transaction.date).toLocaleDateString(undefined, {
+                month: "long",
+                day: "numeric",
+              })}
+            </td>
+            <td>{transaction.description}</td>
+            <td>${transaction.amount}</td>
+            <td>{calculatePoints(transaction.amount)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
         </div>
       ))}
     </div>
