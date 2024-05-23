@@ -17,8 +17,8 @@ function CustomerList() {
         {customers.map((customer) => (
           <li key={customer.customerId}>
             {customer.customerName}{" "}
-            <Link to={`/transactions/${customer.customerId}`}>
-              Transactions
+            <Link to={`/rewards/${customer.customerId}`}>
+              Rewards
             </Link>
           </li>
         ))}

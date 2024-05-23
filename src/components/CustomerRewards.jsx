@@ -4,11 +4,13 @@ import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
 import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
 import { calculatePoints } from "../utils/calculatePoints";
 
-function CustomerTransactions() {
+function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
   const [customerName, setCustomerName] = useState("");
-
+  const totalPoints = Object.values(transactions)
+  .flat()
+  .reduce((total, transaction) => total + calculatePoints(transaction.amount), 0);
   useEffect(() => {
     const fetchCustomerName = async () => {
       const customerData = await fetchCustomers();
@@ -33,10 +35,13 @@ function CustomerTransactions() {
 
   return (
     <div>
+      <h3>Total Points for All Months: {totalPoints}</h3>
       <h2>{customerName}'s Transactions</h2>
-      {Object.keys(transactions).map((month) => (
-        <div key={month}>
-          <h3>{month}</h3>
+      {Object.keys(transactions).map((month) => {
+        const monthlyTransactions = transactions[month];
+        const monthlyTotalPoints = monthlyTransactions.reduce((total, transaction) => total + calculatePoints(transaction.amount), 0);
+        return (<div key={month}>
+          <h3>{month} Monthly Points: {monthlyTotalPoints}</h3>
           <table>
       <thead>
         <tr>
@@ -62,10 +67,10 @@ function CustomerTransactions() {
         ))}
       </tbody>
     </table>
-        </div>
-      ))}
+        </div>)
+      })}
     </div>
   );
 }
 
-export default CustomerTransactions;
+export default CustomerRewards;
