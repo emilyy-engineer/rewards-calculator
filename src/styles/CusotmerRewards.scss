@@ -8,31 +8,6 @@
   width: 60%;
   padding: 1rem;
 
-  &__navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-    background-color: #0070c0;
-    border-bottom: 1px solid #ddd;
-
-    &__left {
-      font-weight: bold;
-      color: #fff;
-    }
-
-    &__right {
-      display: flex;
-      gap: 1rem;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-      }
-    }
-  }
-
   &__content {
     display: flex;
     width: 100%;

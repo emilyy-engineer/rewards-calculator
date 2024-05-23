@@ -6,6 +6,7 @@ import { calculatePoints, calculateTotalPoints, calculateTotalPointsByMonth } fr
 import TransactionsTable from "./TransactionsTable";
 import "../styles/CusotmerRewards.scss"
 import CustomerRewardsNavbar from "./CustomerRewardsNavbar";
+import Navbar from './Navbar';
 function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
@@ -33,10 +34,16 @@ function CustomerRewards() {
     fetchCustomerName();
     fetchCustomerTransactions();
   }, [customerId]);
-
+  const leftContent = <div>Rewards Points: {totalPoints}</div>;
+  const rightContent = (
+    <>
+      <a href="/">Dashboard</a>
+      <a href={`/rewards/${customerId}`}>Rewards</a>
+    </>
+  );
   return (
     <div className="customer-rewards">
-      <CustomerRewardsNavbar totalPoints={totalPoints} customerId={customerId} />
+      <Navbar leftContent={leftContent} rightContent={rightContent} />
       <div className="customer-rewards__content">
         <div className="customer-rewards__activity">
           <h3>Hi! {customerName}</h3>
