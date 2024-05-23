@@ -37,7 +37,6 @@ function CustomerTransactions() {
 
     const fetchCustomerTransactions = async () =>{
       const transactionsData = await fetchTransactionByCustomerId(parseInt(customerId));
-      console.log("transactionsData=",transactionsData);
       const groupedTransactions = groupTransactionsByMonth(transactionsData);
       setTransactions(groupedTransactions)
     }
