@@ -40,8 +40,8 @@ function CustomerRewards() {
           Rewards Points: {totalPoints}
         </div>
         <div className="customer-rewards__navbar__right">
-          <a href="/dashboard">Dashboard</a>
-          <a href="/rewards">Rewards</a>
+          <a href="/">Dashboard</a>
+          <a href={`/rewards/${customerId}`}>Rewards</a>
         </div>
       </div>
       <div className="customer-rewards__content">
