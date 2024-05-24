@@ -3,17 +3,10 @@ import { fetchCustomers } from "../api/fetchData";
 import { Link } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import Greeting from "./Greeting";
-import Navbar from "./Navbar";
 import CustomersTable from "./CustomersTable";
+import useCustomers from "../hooks/useCustomers";
 function CustomersPage() {
-  const [customers, setCustomers] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const customersData = await fetchCustomers();
-      setCustomers(customersData);
-    };
-    fetchData();
-  }, []);
+  const customers = useCustomers();
   return (
     <PageLayout leftContent={<Link to="/">Home</Link>}>
       

@@ -15,32 +15,25 @@ import MonthlyPointsItem from "./MonthlyPointsItem";
 import TransactionsLink from "./TransactionsLink";
 import PageLayout from "./PageLayout";
 import "../styles/PageLayout.scss";
+import useCustomers from "../hooks/useCustomers";
 
 function CustomerRewards() {
   const { customerId } = useParams();
   const [transactions, setTransactions] = useState([]);
-  const [customerName, setCustomerName] = useState("");
   const totalPointsByMonth = calculateTotalPointsByMonth(transactions);
   const totalPoints = calculateTotalPoints(transactions);
   const allTransactions = Object.values(transactions).flat();
+  const customers = useCustomers();
+  const customer = customers.find((c) => c.customerId === customerId);
+  const customerName = customer ? customer.customerName : '';
   useEffect(() => {
-    const fetchCustomerName = async () => {
-      const customerData = await fetchCustomers();
-      const customer = customerData.find((c) => c.customerId === customerId);
-      if (customer) {
-        setCustomerName(customer.customerName);
-      }
-    };
+    
 
     const fetchCustomerTransactions = async () => {
       const transactionsData = await fetchTransactionByCustomerId(customerId);
-      // console.log("transactionsData:", transactionsData)
-      // console.log("groupTransactionsByMonth=",groupTransactionsByMonth)
       const groupedTransactions = groupTransactionsByMonth(transactionsData, 3);
-      console.log("groupedTransactions=", groupedTransactions);
       setTransactions(groupedTransactions);
     };
-    fetchCustomerName();
     fetchCustomerTransactions();
   }, [customerId]);
 
