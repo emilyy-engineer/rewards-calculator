@@ -19,7 +19,9 @@ function CustomerRewards() {
   const { customerId } = useParams();
   const customers = useCustomers();
   const transactions = useCustomerTransactions(customerId);
-
+  if (!customers.length || !transactions) {
+    return <div>Loading...</div>;
+  }
   const customer = customers.find((c) => c.customerId === customerId);
   const customerName = customer ? customer.customerName : "";
 
