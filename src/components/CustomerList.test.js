@@ -1,29 +1,28 @@
-import React,{ act }  from "react";
+import React, { act } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import '@testing-library/jest-dom/extend-expect';
-import CustomerList from "./CustomerList";
+import "@testing-library/jest-dom/extend-expect";
+import CustomersPage from "./CustomersPage";
 import { fetchCustomers } from "../api/fetchData";
 import { BrowserRouter as Router } from "react-router-dom";
 
-jest.mock("../api/fetchData.js")
+jest.mock("../api/fetchData.js");
 
-describe("CustomerList Component", () => {
-
+describe("CustomersPage Component", () => {
   beforeEach(() => {
     fetchCustomers.mockClear();
-  })
+  });
 
-  it("fetches and displays customers", async ()=> {
-    render(<CustomerList/>)
+  it("fetches and displays customers", async () => {
+    render(<CustomersPage />);
     expect(screen.getByText("Customer List")).toBeInTheDocument();
-    expect(screen.getByText('John Doe')).toBeInTheDocument();
-  })
+    expect(screen.getByText("John Doe")).toBeInTheDocument();
+  });
 
   it("handles empty customer list", async () => {
-    render(<CustomerList />);
+    render(<CustomersPage />);
     expect(screen.getByText("Customer List")).toBeInTheDocument();
-    expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
-  })
+    expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
+  });
 
   // it("displays the Rewards link for each customer", async () => {
   //   const mockCustomers = [
@@ -33,7 +32,7 @@ describe("CustomerList Component", () => {
 
   //   fetchCustomers.mockResolvedValueOnce(mockCustomers);
   //   render(
-  //     <CustomerList />
+  //     <CustomersPage />
   //   )
 
   //   await waitFor(() => {
@@ -43,4 +42,4 @@ describe("CustomerList Component", () => {
   //     })
   //   })
   // })
-})
+});

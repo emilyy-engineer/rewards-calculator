@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import Greeting from "./Greeting";
 import Navbar from "./Navbar";
-function CustomerList() {
+import CustomersTable from "./CustomersTable";
+function CustomersPage() {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -19,19 +20,10 @@ function CustomerList() {
       <div className="page-layout__activity">
         <Greeting name="Admin" role="admin" />
         <h2>Customer List</h2>
-        <ul>
-          {customers.map((customer) => (
-            <li key={customer.customerId}>
-              {customer.customerName}{" "}
-              <Link to={`/rewards/${customer.customerId}`}>
-                Rewards
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <CustomersTable customers={customers} />
       </div>
     </PageLayout>
   );
 }
 
-export default CustomerList;
+export default CustomersPage;
