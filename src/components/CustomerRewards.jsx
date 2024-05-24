@@ -15,6 +15,7 @@ import RewardsLink from "./RewardsLink";
 import TotalRewardsPoints from "./TotalRewardsPoints";
 import Greeting from "./Greeting";
 import MonthlyPointsItem from "./MonthlyPointsItem";
+import TransactionsLink from "./TransactionsLink";
 
 function CustomerRewards() {
   const { customerId } = useParams();
@@ -51,7 +52,7 @@ function CustomerRewards() {
         rightContent={
           <>
             <DashboardLink />
-            <RewardsLink />
+            <TransactionsLink />
           </>
         }
       />
