@@ -61,7 +61,7 @@ function CustomerRewards() {
         />
       </div>
       <div className="page-layout__summary">
-        <TotalRewardsPoints points={totalPoints} />
+        <h3>Monthly Rewards Points</h3>
         <ul>
           {Object.entries(totalPointsByMonth).map(([month, points]) => (
             <MonthlyPointsItem key={month} month={month} points={points} />
