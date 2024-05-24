@@ -9,13 +9,13 @@ import {
 } from "../utils/pointsUtils";
 import TransactionsTable from "./TransactionsTable";
 import "../styles/CusotmerRewards.scss";
-import Navbar from "./Navbar";
 import DashboardLink from "./DashboardLink";
-import RewardsLink from "./RewardsLink";
 import TotalRewardsPoints from "./TotalRewardsPoints";
 import Greeting from "./Greeting";
 import MonthlyPointsItem from "./MonthlyPointsItem";
 import TransactionsLink from "./TransactionsLink";
+import PageLayout from "./PageLayout";
+import "../styles/PageLayout.scss";
 
 function CustomerRewards() {
   const { customerId } = useParams();
@@ -46,38 +46,31 @@ function CustomerRewards() {
   }, [customerId]);
 
   return (
-    <div className="customer-rewards">
-      <Navbar
-        leftContent={<TotalRewardsPoints totalPoints={totalPoints} />}
-        rightContent={
-          <>
-            <DashboardLink />
-            <TransactionsLink />
-          </>
-        }
-      />
-      <div className="customer-rewards__content">
-        <div className="customer-rewards__activity">
+    <PageLayout leftContent={<TotalRewardsPoints totalPoints={totalPoints} />} rightContent={
+      <>
+        <DashboardLink />
+        <TransactionsLink />
+      </>
+    }>
+    <div className="page-layout__activity">
         <Greeting name={customerName} role="customer" />
-          <h2>Reward Points Activity</h2>
-            <TransactionsTable
-              transactions={allTransactions}
-              includePoints={true}
-              calculatePoints={calculatePoints}
-            />
-        </div>
-        <div className="customer-rewards__summary">
-          <div className="customer-rewards__total-points">
-            Your Total Points for Past 3 Months: {totalPoints}
-          </div>
-          <ul>
-            {Object.entries(totalPointsByMonth).map(([month, points]) => (
-             <MonthlyPointsItem key={month} month={month} points={points} />
-            ))}
-          </ul>
-        </div>
+        <h2>Reward Points Activity</h2>
+        <TransactionsTable
+          transactions={allTransactions}
+          includePoints={true}
+          calculatePoints={calculatePoints}
+        />
       </div>
-    </div>
+      <div className="page-layout__summary">
+        <TotalRewardsPoints points={totalPoints} />
+        <ul>
+          {Object.entries(totalPointsByMonth).map(([month, points]) => (
+            <MonthlyPointsItem key={month} month={month} points={points} />
+          ))}
+        </ul>
+      </div>
+
+    </PageLayout>
   );
 }
 
