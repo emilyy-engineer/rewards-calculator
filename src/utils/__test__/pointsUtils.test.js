@@ -1,4 +1,4 @@
-import { calculatePoints } from "./calculatePoints"
+import { calculatePoints } from "../pointsUtils"
 
 describe('calculatePoints', () => {
   it('should add 0 points if amount less or equal to 50', () => {
