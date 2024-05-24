@@ -8,7 +8,6 @@ import {
   calculateTotalPointsByMonth,
 } from "../utils/pointsUtils";
 import TransactionsTable from "./TransactionsTable";
-import "../styles/CusotmerRewards.scss";
 import DashboardLink from "./DashboardLink";
 import TotalRewardsPoints from "./TotalRewardsPoints";
 import Greeting from "./Greeting";
