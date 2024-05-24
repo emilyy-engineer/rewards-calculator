@@ -12,10 +12,16 @@
     display: flex;
     width: 100%;
     max-width: 1200px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     flex-grow: 1;
   }
-
+  &__activity, &__summary {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+    background-color: #fff;
+    border-radius: 4px;
+  }
   &__activity {
     flex: 2;
     padding-right: 1rem;
@@ -28,7 +34,7 @@
   &__summary {
     flex: 1;
     padding-left: 1rem;
-    border-left: 1px solid #ddd;
+    margin-left: 1rem;
   }
 
   &__total-points {
