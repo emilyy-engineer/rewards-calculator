@@ -6,9 +6,9 @@ This is a React front-end application that calculates rewards for customers base
 
 - [Project Setup](#project-setup)
 - [Available Scripts](#available-scripts)
-- [Project Structure](#project-structure)
 - [Simulated API](#simulated-api)
 - [Components](#components)
+- [Unit Tests](#unit-tests)
 
 ## Project Setup
 1. **Clone the repository:**
@@ -37,59 +37,16 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+
 ## Simulated API
 
 The simulated API calls are located in the `src/api/fetchData.js` file. These functions mimic async API requests to fetch customer and transaction data.
 
-## Project Structure
-src/
-├── api/
-│ └── fetchData.js # Simulated API calls
-├── components/
-│ ├── common/
-│ │ ├── Navbar.jsx
-│ │ ├── PageLayout.jsx
-│ │ └── Greeting.jsx
-│ ├── customers/
-│ │ ├── CustomersPage.jsx
-│ │ ├── CustomersTable.jsx
-│ │ ├── CustomerRewards.jsx
-│ │ ├── MonthlyPointsItem.jsx
-│ │ └── TotalRewardsPoints.jsx
-│ ├── links/
-│ │ ├── DashboardLink.jsx
-│ │ ├── RewardsLink.jsx
-│ │ └── TransactionsLink.jsx
-│ ├── transactions/
-│ └── TransactionsTable.jsx
-│ └── CustomerTransactions.jsx
-├── hooks/
-│ ├── useCustomers.js # Custom hook for fetching customers
-│ └── useCustomerTransactions.js # Custom hook for fetching transactions
-├── utils/
-│ ├── formatDate.js # Utility function for date formatting
-│ └── groupTransactionsByMonth.js # Utility function for grouping transactions
-├── styles/
-│ ├── App.scss
-│ ├── Navbar.scss
-│ ├── PageLayout.scss
-│ ├── TransactionsTable.scss
-│ └── reset.scss
-├── tests/
-│ ├── useCustomers.test.js # Unit tests for useCustomers hook
-│ └── useCustomerTransactions.test.js # Unit tests for useCustomerTransactions hook
-├── App.js
-├── index.js
-└── setupTests.js
 
 ## Components
 
@@ -97,3 +54,14 @@ src/
 - **customers**: Contains components related to customer features, such as `CustomersPage`, `CustomersTable`, and `CustomerRewards`.
 - **links**: Contains link components for navigation, such as `DashboardLink`, `RewardsLink`, and `TransactionsLink`.
 - **transactions**: Contains components related to transactions, such as `TransactionsTable` and `CustomerTransactions`.
+
+## Unit Tests
+
+Unit tests are included for key components and hooks. These tests are located beside the corresponding component or hook file.
+
+### Running Tests
+
+To run the tests, use the following command:
+
+```sh
+npm test
