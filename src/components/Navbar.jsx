@@ -1,4 +1,4 @@
-import './Navbar.scss';
+import '../styles/Navbar.scss'
 function Navbar({leftContent, rightContent}) {
   return (
     <div className="navbar">
