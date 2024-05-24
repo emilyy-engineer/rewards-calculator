@@ -15,7 +15,8 @@ export const groupTransactionsByMonth = (transactions, numberOfMonths = 12) => {
     .sort((a, b) => new Date(b) - new Date(a))
     .slice(0, numberOfMonths)
     .reduce((acc, month) => {
-      acc[month] = grouped[month];
+      const sortedTransactions = grouped[month].sort((a, b) => new Date(b.date) - new Date(a.date));
+      acc[month] = sortedTransactions;
       return acc;
     }, {});
 

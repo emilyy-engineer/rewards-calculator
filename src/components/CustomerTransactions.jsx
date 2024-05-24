@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { fetchTransactionByCustomerId } from "../api/fetchData";
 import { useParams } from "react-router-dom";
 import TransactionsTable from "./TransactionsTable";
 import DashboardLink from "./DashboardLink";
@@ -12,7 +10,7 @@ function CustomerTransactions() {
   const { customerId } = useParams();
   const transactions = useCustomerTransactions(customerId);
   const allTransactions = Object.values(transactions).flat();
-  
+
   return (
     <PageLayout
       rightContent={
