@@ -4,27 +4,43 @@ This is a React front-end application that calculates rewards for customers base
 
 ## Table of Contents
 
+- [Screenshots](#Screenshots)
 - [Project Setup](#project-setup)
 - [Available Scripts](#available-scripts)
 - [Simulated API](#simulated-api)
 - [Components](#components)
 - [Unit Tests](#unit-tests)
 
+## Screenshots
+
+Here are some screenshots of the application:
+
+1. **Customer List:**
+   ![Customer List](screenshots/CustomerList.png)
+
+2. **Rewards Page:**
+   ![Rewards Page](screenshots/Rewards.png)
+
+3. **Transactions Page:**
+   ![Transactions Page](screenshots/Transactions.png)
+
 ## Project Setup
+
 1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/emilyy-engineer/rewards-calculator.git
-    cd rewards-calculator
-    ```
+   ```sh
+   git clone https://github.com/emilyy-engineer/rewards-calculator.git
+   cd rewards-calculator
+   ```
 2. **Install dependencies:**
-    ```sh
-    npm install
-    ```
+
+   ```sh
+   npm install
+   ```
 
 3. **Start the development server:**
-    ```sh
-    npm start
-    ```
+   ```sh
+   npm start
+   ```
 
 The application will run in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -42,11 +58,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-
 ## Simulated API
 
 The simulated API calls are located in the `src/api/fetchData.js` file. These functions mimic async API requests to fetch customer and transaction data.
-
 
 ## Components
 
@@ -65,3 +79,4 @@ To run the tests, use the following command:
 
 ```sh
 npm test
+```
