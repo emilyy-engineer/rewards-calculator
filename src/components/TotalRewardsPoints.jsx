@@ -1,6 +1,7 @@
+import '../styles/TotalRewardsPoints.scss'
 function TotalRewardsPoints({ totalPoints }) {
   return (
-    <div>Rewards Points: {totalPoints}</div>
+    <div className="total-rewards-points">Rewards Points: {totalPoints}</div>
   )
 }
 

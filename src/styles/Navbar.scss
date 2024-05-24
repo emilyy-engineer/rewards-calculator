@@ -7,18 +7,18 @@
   background-color: #0070c0;
   border-bottom: 1px solid #ddd;
 
-  &__left {
-    font-weight: bold;
-    color: #fff;
-  }
-
-  &__right {
+  &__left, &__right {
     display: flex;
+    align-items: center;
     gap: 1rem;
 
-    a {
+    a, .total-rewards-points {
       text-decoration: none;
       color: #fff;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
