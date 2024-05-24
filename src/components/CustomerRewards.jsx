@@ -14,6 +14,7 @@ import DashboardLink from "./DashboardLink";
 import RewardsLink from "./RewardsLink";
 import TotalRewardsPoints from "./TotalRewardsPoints";
 import Greeting from "./Greeting";
+import MonthlyPointsItem from "./MonthlyPointsItem";
 
 function CustomerRewards() {
   const { customerId } = useParams();
@@ -70,9 +71,7 @@ function CustomerRewards() {
           </div>
           <ul>
             {Object.entries(totalPointsByMonth).map(([month, points]) => (
-              <li key={month}>
-                {month}: {points} points
-              </li>
+             <MonthlyPointsItem key={month} month={month} points={points} />
             ))}
           </ul>
         </div>

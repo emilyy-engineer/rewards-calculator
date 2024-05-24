@@ -1,0 +1,19 @@
+.monthly-points-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  background-color: #f9f9f9;
+
+  &__month {
+    font-weight: bold;
+    color: #0070c0;
+    margin-bottom: 0.3rem;
+  }
+
+  &__points {
+    color: #333;
+  }
+}
