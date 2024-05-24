@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
-import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
 import {
   calculatePoints,
   calculateTotalPoints,
@@ -16,27 +13,20 @@ import TransactionsLink from "./TransactionsLink";
 import PageLayout from "./PageLayout";
 import "../styles/PageLayout.scss";
 import useCustomers from "../hooks/useCustomers";
+import useCustomerTransactions from "../hooks/useCustomerTransactions";
 
 function CustomerRewards() {
   const { customerId } = useParams();
-  const [transactions, setTransactions] = useState([]);
+  const customers = useCustomers();
+  const transactions  = useCustomerTransactions(customerId);
+  
+  const customer = customers.find((c) => c.customerId === customerId);
+  const customerName = customer ? customer.customerName : '';
+
   const totalPointsByMonth = calculateTotalPointsByMonth(transactions);
   const totalPoints = calculateTotalPoints(transactions);
   const allTransactions = Object.values(transactions).flat();
-  const customers = useCustomers();
-  const customer = customers.find((c) => c.customerId === customerId);
-  const customerName = customer ? customer.customerName : '';
-  useEffect(() => {
-    
-
-    const fetchCustomerTransactions = async () => {
-      const transactionsData = await fetchTransactionByCustomerId(customerId);
-      const groupedTransactions = groupTransactionsByMonth(transactionsData, 3);
-      setTransactions(groupedTransactions);
-    };
-    fetchCustomerTransactions();
-  }, [customerId]);
-
+ 
   return (
     <PageLayout leftContent={<TotalRewardsPoints totalPoints={totalPoints} />} rightContent={
       <>

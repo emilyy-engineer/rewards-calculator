@@ -6,20 +6,13 @@ import DashboardLink from "./DashboardLink";
 import RewardsLink from "./RewardsLink";
 import "../styles/PageLayout.scss";
 import PageLayout from "./PageLayout";
+import useCustomerTransactions from "../hooks/useCustomerTransactions";
 
 function CustomerTransactions() {
   const { customerId } = useParams();
-  const [transactions, setTransactions] = useState([]);
-
-  useEffect(() => {
-    const fetchCustomerTransactions = async () => {
-      const transactionsData = await fetchTransactionByCustomerId(customerId);
-      setTransactions(transactionsData);
-    };
-    fetchCustomerTransactions();
-  }, [customerId]);
-
+  const transactions = useCustomerTransactions(customerId);
   const allTransactions = Object.values(transactions).flat();
+  
   return (
     <PageLayout
       rightContent={
