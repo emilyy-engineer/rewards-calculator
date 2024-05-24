@@ -13,6 +13,7 @@ import Navbar from "./Navbar";
 import DashboardLink from "./DashboardLink";
 import RewardsLink from "./RewardsLink";
 import TotalRewardsPoints from "./TotalRewardsPoints";
+import Greeting from "./Greeting";
 
 function CustomerRewards() {
   const { customerId } = useParams();
@@ -55,7 +56,7 @@ function CustomerRewards() {
       />
       <div className="customer-rewards__content">
         <div className="customer-rewards__activity">
-          <h3>Hi! {customerName}</h3>
+        <Greeting name={customerName} role="customer" />
           <h2>Reward Points Activity</h2>
             <TransactionsTable
               transactions={allTransactions}
