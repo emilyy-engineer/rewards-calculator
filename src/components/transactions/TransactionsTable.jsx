@@ -1,6 +1,10 @@
-import { formatDate } from "../utils/formatDate";
-import '../styles/TransactionsTable.scss'
-function TransactionsTable({ transactions, includePoints = false, calculatePoints }) {
+import { formatDate } from "../../utils/formatDate";
+import "../../styles/TransactionsTable.scss";
+function TransactionsTable({
+  transactions,
+  includePoints = false,
+  calculatePoints,
+}) {
   return (
     <table className="transactions-table">
       <thead>

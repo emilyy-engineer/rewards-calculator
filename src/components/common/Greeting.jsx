@@ -1,4 +1,4 @@
-import '../styles/Greeting.scss'
+import '../../styles/Greeting.scss'
 function Greeting({ name, role='customer'}) {
   return (
     <div className="greeting">

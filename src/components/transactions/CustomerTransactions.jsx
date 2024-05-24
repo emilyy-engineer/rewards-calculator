@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import TransactionsTable from "./TransactionsTable";
-import DashboardLink from "./DashboardLink";
-import RewardsLink from "./RewardsLink";
-import "../styles/PageLayout.scss";
-import PageLayout from "./PageLayout";
-import useCustomerTransactions from "../hooks/useCustomerTransactions";
+import DashboardLink from "../links/DashboardLink";
+import RewardsLink from "../links/RewardsLink";
+import "../../styles/PageLayout.scss";
+import PageLayout from "../common/PageLayout";
+import useCustomerTransactions from "../../hooks/useCustomerTransactions";
 
 function CustomerTransactions() {
   const { customerId } = useParams();
@@ -28,7 +28,7 @@ function CustomerTransactions() {
         />
       </div>
     </PageLayout>
-  )
+  );
 }
 
-export default CustomerTransactions
+export default CustomerTransactions;

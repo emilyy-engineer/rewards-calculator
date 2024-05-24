@@ -1,4 +1,4 @@
-import '../styles/MonthlyPointsItem.scss'
+import '../../styles/MonthlyPointsItem.scss'
 function MonthlyPointsItem({ month, points }) {
   return (
     <li className="monthly-points-item">

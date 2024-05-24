@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import PageLayout from "./PageLayout";
-import Greeting from "./Greeting";
+import PageLayout from "../common/PageLayout";
+import Greeting from "../common/Greeting";
 import CustomersTable from "./CustomersTable";
-import useCustomers from "../hooks/useCustomers";
+import useCustomers from "../../hooks/useCustomers";
 
 function CustomersPage() {
   const customers = useCustomers();

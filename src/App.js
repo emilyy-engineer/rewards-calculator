@@ -1,9 +1,8 @@
 import "./App.css";
-import CustomerList from "./components/CustomersPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CustomerRewards from "./components/CustomerRewards";
-import CustomerTransactions from "./components/CustomerTransactions";
-import CustomersPage from "./components/CustomersPage";
+import CustomerRewards from "./components/customers/CustomerRewards";
+import CustomerTransactions from "./components/transactions/CustomerTransactions";
+import CustomersPage from "./components/customers/CustomersPage";
 
 function App() {
   return (

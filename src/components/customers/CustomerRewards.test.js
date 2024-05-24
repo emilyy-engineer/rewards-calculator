@@ -1,7 +1,10 @@
 import { Route, Router, Routes } from "react-router-dom";
-import { fetchCustomers, fetchTransactionByCustomerId } from "../api/fetchData";
-import { calculatePoints } from "../utils/pointsUtils";
-import { groupTransactionsByMonth } from "../utils/groupTransactionsByMonth";
+import {
+  fetchCustomers,
+  fetchTransactionByCustomerId,
+} from "../../api/fetchData";
+import { calculatePoints } from "../../utils/pointsUtils";
+import { groupTransactionsByMonth } from "../../utils/groupTransactionsByMonth";
 import { render, waitFor, screen } from "@testing-library/react";
 import CustomerRewards from "./CustomerRewards";
 
