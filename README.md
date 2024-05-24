@@ -50,6 +50,47 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The simulated API calls are located in the `src/api/fetchData.js` file. These functions mimic async API requests to fetch customer and transaction data.
 
+## Project Structure
+src/
+├── api/
+│ └── fetchData.js # Simulated API calls
+├── components/
+│ ├── common/
+│ │ ├── Navbar.jsx
+│ │ ├── PageLayout.jsx
+│ │ └── Greeting.jsx
+│ ├── customers/
+│ │ ├── CustomersPage.jsx
+│ │ ├── CustomersTable.jsx
+│ │ ├── CustomerRewards.jsx
+│ │ ├── MonthlyPointsItem.jsx
+│ │ └── TotalRewardsPoints.jsx
+│ ├── links/
+│ │ ├── DashboardLink.jsx
+│ │ ├── RewardsLink.jsx
+│ │ └── TransactionsLink.jsx
+│ ├── transactions/
+│ └── TransactionsTable.jsx
+│ └── CustomerTransactions.jsx
+├── hooks/
+│ ├── useCustomers.js # Custom hook for fetching customers
+│ └── useCustomerTransactions.js # Custom hook for fetching transactions
+├── utils/
+│ ├── formatDate.js # Utility function for date formatting
+│ └── groupTransactionsByMonth.js # Utility function for grouping transactions
+├── styles/
+│ ├── App.scss
+│ ├── Navbar.scss
+│ ├── PageLayout.scss
+│ ├── TransactionsTable.scss
+│ └── reset.scss
+├── tests/
+│ ├── useCustomers.test.js # Unit tests for useCustomers hook
+│ └── useCustomerTransactions.test.js # Unit tests for useCustomerTransactions hook
+├── App.js
+├── index.js
+└── setupTests.js
+
 ## Components
 
 - **common**: Contains common components used across the application, such as `Navbar`, `PageLayout`, and `Greeting`.
