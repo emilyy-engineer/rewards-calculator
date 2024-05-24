@@ -1,4 +1,4 @@
-import { groupTransactionsByMonth } from "./groupTransactionsByMonth";
+import { groupTransactionsByMonth } from "../groupTransactionsByMonth";
 
 describe("groupTransactionsByMonth", () => {
   it("should group transactions by month and return the last 3 months", () => {

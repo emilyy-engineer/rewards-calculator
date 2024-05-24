@@ -1,8 +1,8 @@
 import React, { act } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import CustomersPage from "./CustomersPage";
-import { fetchCustomers } from "../../api/fetchData";
+import CustomersPage from "../CustomersPage";
+import { fetchCustomers } from "../../../api/fetchData";
 import { BrowserRouter as Router } from "react-router-dom";
 
 jest.mock("../api/fetchData.js");

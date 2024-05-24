@@ -2,11 +2,11 @@ import { Route, Router, Routes } from "react-router-dom";
 import {
   fetchCustomers,
   fetchTransactionByCustomerId,
-} from "../../api/fetchData";
-import { calculatePoints } from "../../utils/pointsUtils";
-import { groupTransactionsByMonth } from "../../utils/groupTransactionsByMonth";
+} from "../../../api/fetchData";
+import { calculatePoints } from "../../../utils/pointsUtils";
+import { groupTransactionsByMonth } from "../../../utils/groupTransactionsByMonth";
 import { render, waitFor, screen } from "@testing-library/react";
-import CustomerRewards from "./CustomerRewards";
+import CustomerRewards from "../CustomerRewards";
 
 jest.mock("../api/fetchData");
 jest.mock("../utils/groupTransactionsByMonth");
