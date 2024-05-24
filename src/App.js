@@ -1,4 +1,4 @@
-import "./App.css";
+import '../src/styles/App.scss'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CustomerRewards from "./components/customers/CustomerRewards";
 import CustomerTransactions from "./components/transactions/CustomerTransactions";
