@@ -14,20 +14,36 @@ import PageLayout from "../common/PageLayout";
 import "../../styles/PageLayout.scss";
 import useCustomers from "../../hooks/useCustomers";
 import useCustomerTransactions from "../../hooks/useCustomerTransactions";
+import { useMemo } from "react";
 
 function CustomerRewards() {
   const { customerId } = useParams();
   const customers = useCustomers();
   const transactions = useCustomerTransactions(customerId);
+
+
+  const customer = useMemo(
+    () => customers.find((c) => c.customerId === customerId),
+    [customers, customerId]
+  );
+  const customerName = customer ? customer.customerName : "";
+
+  const totalPointsByMonth = useMemo(
+    () => calculateTotalPointsByMonth(transactions),
+    [transactions]
+  );
+  const totalPoints = useMemo(
+    () => calculateTotalPoints(transactions),
+    [transactions]
+  );
+  const allTransactions = useMemo(
+    () => Object.values(transactions).flat(),
+    [transactions]
+  );
   if (!customers.length || !transactions) {
     return <div>Loading...</div>;
   }
-  const customer = customers.find((c) => c.customerId === customerId);
-  const customerName = customer ? customer.customerName : "";
 
-  const totalPointsByMonth = calculateTotalPointsByMonth(transactions);
-  const totalPoints = calculateTotalPoints(transactions);
-  const allTransactions = Object.values(transactions).flat();
 
   return (
     <PageLayout
